@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false,
       required: true,
-      maxlength: 500,
+      maxlength: 100,
       validate: {
         notEmpty: true,
       },
@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false,
       required: true,
-      maxlength: 500,
+      maxlength: 100,
       validate: {
         notEmpty: true,
       },
@@ -22,7 +22,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false,
       required: true,
-      maxlength: 500,
+      maxlength: 100,
       validate: {
         notEmpty: true,
       },
