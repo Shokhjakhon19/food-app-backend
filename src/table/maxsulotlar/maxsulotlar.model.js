@@ -32,6 +32,14 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+    maxsulot_rasmi: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      required: true,
+      validate: {
+        notEmpty: true,
+      },
+    },
   });
 
   return Maxsulotlar;

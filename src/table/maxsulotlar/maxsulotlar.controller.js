@@ -28,6 +28,7 @@ exports.create = (req, res) => {
     maxsulot_holati: req.body.maxsulot_holati,
     maxsulot_narxi: req.body.maxsulot_narxi,
     maxsulot_turi: req.body.maxsulot_turi,
+    maxsulot_rasmi: req.body.maxsulot_rasmi,
   };
 
   Maxsulotlar.create(amember)
@@ -66,6 +67,7 @@ exports.update = (req, res) => {
     maxsulot_holati: req.body.maxsulot_holati,
     maxsulot_narxi: req.body.maxsulot_narxi,
     maxsulot_turi: req.body.maxsulot_turi,
+    maxsulot_rasmi: req.body.maxsulot_rasmi,
   };
 
   const id = req.params.id;
