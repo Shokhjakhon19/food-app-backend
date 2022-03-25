@@ -27,6 +27,10 @@ app.get("/", (req, res) => {
   res.json({ message: "HomePage" });
 });
 
+app.get("/category", (req, res) => {
+  res.json(["suyuq", "quyuq", "ichimlik", "salat", "shirinlik", "fastfood"]);
+});
+
 app.use((err, req, res, next) => {
   handleError(err, res);
 });
