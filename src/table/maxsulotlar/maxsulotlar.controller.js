@@ -13,7 +13,7 @@ exports.findAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Aforizms.",
+          err.message || "Some error occurred while retrieving Maxsulotlar.",
       });
     });
 };
@@ -38,7 +38,7 @@ exports.create = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Aforizms.",
+          err.message || "Some error occurred while creating the Maxsulotlar.",
       });
     });
 };
@@ -53,6 +53,23 @@ exports.findOne = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: "Error retrieving maxsulotlar with id=" + id,
+      });
+    });
+};
+
+exports.filter = (req, res) => {
+  var a = req.query.turi;
+  console.log("====================================");
+  console.log(a);
+  console.log("====================================");
+  Maxsulotlar.findAll({ where: { maxsulot_turi: a } })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Maxsulotlar.",
       });
     });
 };
