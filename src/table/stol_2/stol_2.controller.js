@@ -3,13 +3,8 @@ const Stol_2 = db.stol_2;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  const Stol_2 = {
-    buyurtma_nomi: req.body.buyurtma_nomi,
-    buyurtma_soni: req.body.buyurtma_soni,
-    buyurtma_narxi: req.body.buyurtma_narxi,
-  };
-
-  Stol_2.create(Stol_2)
+  
+  Stol_2.create(req.body)
     .then((data) => {
       res.send(data);
     })
@@ -56,15 +51,9 @@ exports.findOne = (req, res) => {
 // Update a Stol_2 by the id in the request
 exports.update = (req, res) => {
 
-  const Stol_2 = {
-    buyurtma_nomi: req.body.buyurtma_nomi,
-    buyurtma_soni: req.body.buyurtma_soni,
-    buyurtma_narxi: req.body.buyurtma_narxi,
-  };
-
   const id = req.params.id;
 
-  Stol_2.update(Stol_2, {
+  Stol_2.update(req.body, {
     where: { id: id },
   })
     .then((num) => {

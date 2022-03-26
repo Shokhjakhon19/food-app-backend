@@ -19,15 +19,8 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  const amember = {
-    maxsulot_nomi: req.body.maxsulot_nomi,
-    maxsulot_holati: req.body.maxsulot_holati,
-    maxsulot_narxi: req.body.maxsulot_narxi,
-    maxsulot_turi: req.body.maxsulot_turi,
-    maxsulot_rasmi: req.body.maxsulot_rasmi,
-  };
 
-  Maxsulotlar.create(amember)
+  Maxsulotlar.create(req.body)
     .then((data) => {
       res.send(data);
     })
@@ -69,17 +62,9 @@ exports.filter = (req, res) => {
 
 exports.update = (req, res) => {
 
-  const amember = {
-    maxsulot_nomi: req.body.maxsulot_nomi,
-    maxsulot_holati: req.body.maxsulot_holati,
-    maxsulot_narxi: req.body.maxsulot_narxi,
-    maxsulot_turi: req.body.maxsulot_turi,
-    maxsulot_rasmi: req.body.maxsulot_rasmi,
-  };
-
   const id = req.params.id;
 
-  Maxsulotlar.update(amember, {
+  Maxsulotlar.update(req.body, {
     where: { id: id },
   })
     .then((num) => {

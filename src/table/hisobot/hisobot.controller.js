@@ -4,14 +4,7 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
 
-  const amember = {
-    maxsulot_nomi: req.body.maxsulot_nomi,
-    maxsulot_soni: req.body.maxsulot_soni,
-    maxsulot_narxi: req.body.maxsulot_narxi,
-    umumiy_summa: req.body.umumiy_summa,
-  };
-
-  Hisobot.create(amember)
+  Hisobot.create(req.body)
     .then((data) => {
       res.send(data);
     })
@@ -53,16 +46,10 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  const amember = {
-    maxsulot_nomi: req.body.maxsulot_nomi,
-    maxsulot_soni: req.body.maxsulot_soni,
-    maxsulot_narxi: req.body.maxsulot_narxi,
-    umumiy_summa: req.body.umumiy_summa,
-  };
 
   const id = req.params.id;
 
-  Hisobot.update(amember, {
+  Hisobot.update(req.body, {
     where: { id: id },
   })
     .then((num) => {
