@@ -3,10 +3,7 @@ const Hisobot = db.hisobot;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.file) {
-    res.status(500);
-    return res.json({ error: "katta error" });
-  }
+
   const amember = {
     maxsulot_nomi: req.body.maxsulot_nomi,
     maxsulot_soni: req.body.maxsulot_soni,
@@ -56,10 +53,6 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  if (!req.file) {
-    res.status(500);
-    return res.json({ error: "katta error" });
-  }
   const amember = {
     maxsulot_nomi: req.body.maxsulot_nomi,
     maxsulot_soni: req.body.maxsulot_soni,

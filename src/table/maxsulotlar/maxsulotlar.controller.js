@@ -19,10 +19,6 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  if (!req.file) {
-    res.status(500);
-    return res.json({ error: "katta error" });
-  }
   const amember = {
     maxsulot_nomi: req.body.maxsulot_nomi,
     maxsulot_holati: req.body.maxsulot_holati,
@@ -59,9 +55,6 @@ exports.findOne = (req, res) => {
 
 exports.filter = (req, res) => {
   var a = req.query.turi;
-  console.log("====================================");
-  console.log(a);
-  console.log("====================================");
   Maxsulotlar.findAll({ where: { maxsulot_turi: a } })
     .then((data) => {
       res.send(data);
@@ -75,10 +68,7 @@ exports.filter = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  if (!req.file) {
-    res.status(500);
-    return res.json({ error: "katta error" });
-  }
+
   const amember = {
     maxsulot_nomi: req.body.maxsulot_nomi,
     maxsulot_holati: req.body.maxsulot_holati,

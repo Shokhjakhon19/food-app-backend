@@ -3,10 +3,6 @@ const Stol_2 = db.stol_2;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.file) {
-    res.status(500);
-    return res.json({ error: "katta error" });
-  }
   const Stol_2 = {
     buyurtma_nomi: req.body.buyurtma_nomi,
     buyurtma_soni: req.body.buyurtma_soni,
@@ -59,10 +55,7 @@ exports.findOne = (req, res) => {
 
 // Update a Stol_2 by the id in the request
 exports.update = (req, res) => {
-  if (!req.file) {
-    res.status(500);
-    return res.json({ error: "katta error" });
-  }
+
   const Stol_2 = {
     buyurtma_nomi: req.body.buyurtma_nomi,
     buyurtma_soni: req.body.buyurtma_soni,
