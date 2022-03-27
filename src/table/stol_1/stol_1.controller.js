@@ -11,12 +11,12 @@ exports.create = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial.",
+          err.message || "Some error occurred while creating the Stol_1.",
       });
     });
 };
 
-// Retrieve all Stol_1 from the database.
+// Stol_1 find all object with id
 exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
@@ -27,13 +27,12 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving tutorials.",
+        message: err.message || "Some error occurred while retrieving Stol_1.",
       });
     });
 };
 
-// Find a single Stol_1 with an id
+// Stol_1 find one object with id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
@@ -43,12 +42,12 @@ exports.findOne = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Tutorial with id=" + id,
+        message: "Error retrieving Stol_1 with id=" + id,
       });
     });
 };
 
-// Update a Stol_1 by the id in the request
+// Stol_1 update with id
 exports.update = (req, res) => {
   const id = req.params.id;
 
@@ -62,7 +61,7 @@ exports.update = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot update Stol_1 with id=${id}. Maybe Tutorial was not found or req.body is empty!`,
+          message: `Cannot update Stol_1 with id=${id}. Maybe Stol_1 was not found or req.body is empty!`,
         });
       }
     })
@@ -73,8 +72,8 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a Stol_1 with the specified id in the request
-exports.delete = (req, res) => {
+// Stol_1 delete with id
+exports.deleteOne = (req, res) => {
   const id = req.params.id;
 
   Stol_1.destroy({
@@ -83,17 +82,36 @@ exports.delete = (req, res) => {
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was deleted successfully!",
+          message: "Stol_1 was deleted successfully!",
         });
       } else {
         res.send({
-          message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`,
+          message: `Cannot delete Stol_1 with id=${id}. Maybe Stol_1 was not found!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete Tutorial with id=" + id,
+        message: "Could not delete Stol_1 with id=" + id,
+      });
+    });
+};
+
+// Stol_1 delete all rows
+exports.deleteAll = (req, res) => {
+
+  Stol_1.destroy({
+    where: {},
+  })
+    .then((num) => {
+        res.send({
+          message: "Stol_1 was deleted successfully!",
+        });
+      }
+    )
+    .catch((err) => {
+      res.status(500).send({
+        message: "Could not delete Stol_1 with id=" + id,
       });
     });
 };

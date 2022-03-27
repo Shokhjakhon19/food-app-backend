@@ -3,7 +3,6 @@ const Stol_2 = db.stol_2;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  
   Stol_2.create(req.body)
     .then((data) => {
       res.send(data);
@@ -16,7 +15,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all Stol_2 from the database.
+// Stol_2 find all object with id
 exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
@@ -27,13 +26,12 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving Stol_2.",
+        message: err.message || "Some error occurred while retrieving Stol_2.",
       });
     });
 };
 
-// Find a single Stol_2 with an id
+// Stol_2 find one object with id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
@@ -43,14 +41,13 @@ exports.findOne = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Tutorial with id=" + id,
+        message: "Error retrieving Stol_2 with id=" + id,
       });
     });
 };
 
-// Update a Stol_2 by the id in the request
+// Stol_2 update with id
 exports.update = (req, res) => {
-
   const id = req.params.id;
 
   Stol_2.update(req.body, {
@@ -74,8 +71,8 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a Stol_2 with the specified id in the request
-exports.delete = (req, res) => {
+// Stol_2 delete with id
+exports.deleteOne = (req, res) => {
   const id = req.params.id;
 
   Stol_2.destroy({
@@ -88,13 +85,32 @@ exports.delete = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot delete Stol_2 with id=${id}. Maybe Tutorial was not found!`,
+          message: `Cannot delete Stol_2 with id=${id}. Maybe Stol_2 was not found!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
         message: "Could not delete Stol_2 with id=" + id,
+      });
+    });
+};
+
+// Stol_2 delete all rows
+exports.deleteAll = (req, res) => {
+
+  Stol_2.destroy({
+    where: {},
+  })
+    .then((num) => {
+        res.send({
+          message: "Stol_1 was deleted successfully!",
+        });
+      }
+    )
+    .catch((err) => {
+      res.status(500).send({
+        message: "Could not delete Stol_1 with id=" + id,
       });
     });
 };

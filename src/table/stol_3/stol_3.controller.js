@@ -3,7 +3,6 @@ const Stol_3 = db.stol_3;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-
   Stol_3.create(req.body)
     .then((data) => {
       res.send(data);
@@ -11,12 +10,12 @@ exports.create = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial.",
+          err.message || "Some error occurred while creating the Stol_3.",
       });
     });
 };
 
-// Retrieve all Stol_3 from the database.
+// Stol_3 find all object with id
 exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
@@ -27,13 +26,12 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving Stol_3.",
+        message: err.message || "Some error occurred while retrieving Stol_3.",
       });
     });
 };
 
-// Find a single Stol_3 with an id
+// Stol_3 find one object with id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
@@ -48,7 +46,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update a Stol_3 by the id in the request
+// Stol_3 update with id
 exports.update = (req, res) => {
   const id = req.params.id;
 
@@ -73,11 +71,11 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a Stol_3 with the specified id in the request
-exports.delete = (req, res) => {
+// Stol_3 delete with id
+exports.deleteOne = (req, res) => {
   const id = req.params.id;
 
-  Stol_1.destroy({
+  Stol_3.destroy({
     where: { id: id },
   })
     .then((num) => {
@@ -94,6 +92,25 @@ exports.delete = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: "Could not delete Stol_3 with id=" + id,
+      });
+    });
+};
+
+// Stol_3 delete all rows
+exports.deleteAll = (req, res) => {
+
+  Stol_3.destroy({
+    where: {},
+  })
+    .then((num) => {
+        res.send({
+          message: "Stol_1 was deleted successfully!",
+        });
+      }
+    )
+    .catch((err) => {
+      res.status(500).send({
+        message: "Could not delete Stol_1 with id=" + id,
       });
     });
 };

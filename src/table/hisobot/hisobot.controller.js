@@ -11,7 +11,7 @@ exports.create = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the videos.",
+          err.message || "Some error occurred while creating the hisobot.",
       });
     });
 };
@@ -26,7 +26,7 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving videos.",
+        message: err.message || "Some error occurred while retrieving hisobot.",
       });
     });
 };
@@ -40,7 +40,7 @@ exports.findOne = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving video with id=" + id,
+        message: "Error retrieving hisobot with id=" + id,
       });
     });
 };
@@ -65,7 +65,7 @@ exports.update = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error updating video with id=" + id,
+        message: "Error updating hisobot with id=" + id,
       });
     });
 };
@@ -83,13 +83,13 @@ exports.delete = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot delete Staff with id=${id}. Maybe video was not found!`,
+          message: `Cannot delete Staff with id=${id}. Maybe hisobot was not found!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete video with id=" + id,
+        message: "Could not delete hisobot with id=" + id,
       });
     });
 };

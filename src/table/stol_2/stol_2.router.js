@@ -3,10 +3,15 @@ const router = require("express").Router();
 const Validator = require("./stol_2.validator");
 const validate = require("express-validation");
 
+//===== post router
+router.post("/", stol_2.create);
+// ==== get router
 router.get("/", stol_2.findAll);
 router.get("/:id", stol_2.findOne);
-router.post("/", stol_2.create);
+// ==== put router
 router.put("/:id", stol_2.update);
-router.delete("/:id", validate(Validator.deleteOne), stol_2.delete);
+// ===== delete router
+router.delete("/", stol_2.deleteAll);
+router.delete("/:id", validate(Validator.deleteOne), stol_2.deleteOne);
 
 module.exports = router;
