@@ -12,6 +12,6 @@ router.get("/:id", stol_3.findOne);
 router.put("/:id", stol_3.update);
 // ===== delete router
 router.delete("/", stol_3.deleteAll);
-router.delete("/:id", validate(Validator.deleteOne), stol_3.deleteOne);
+router.delete("/:id", stol_3.deleteOne);
 
 module.exports = router;

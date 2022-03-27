@@ -103,7 +103,7 @@ exports.deleteAll = (req, res) => {
   Stol_1.destroy({
     where: {},
   })
-    .then((num) => {
+    .then(() => {
         res.send({
           message: "Stol_1 was deleted successfully!",
         });

@@ -6,6 +6,7 @@ exports.create = (req, res) => {
   Stol_4.create(req.body)
     .then((data) => {
       res.send(data);
+      console.log("succes");
     })
     .catch((err) => {
       res.status(500).send({
@@ -71,7 +72,7 @@ exports.update = (req, res) => {
     });
 };
 
-// Stol_1 delete with id
+// Stol_4 delete with id
 exports.deleteOne = (req, res) => {
   const id = req.params.id;
 
@@ -85,7 +86,7 @@ exports.deleteOne = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot delete Stol_4 with id=${id}. Maybe Tutorial was not found!`,
+          message: `Cannot delete Stol_4 with id=${id}. Maybe Stol_4 was not found!`,
         });
       }
     })
@@ -102,15 +103,15 @@ exports.deleteAll = (req, res) => {
   Stol_4.destroy({
     where: {},
   })
-    .then((num) => {
+    .then(() => {
         res.send({
-          message: "Stol_1 was deleted successfully!",
+          message: "Stol_4 was deleted successfully!",
         });
       }
     )
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete Stol_1 with id=" + id,
+        message: "Could not delete Stol_4 with id=" + id,
       });
     });
 };

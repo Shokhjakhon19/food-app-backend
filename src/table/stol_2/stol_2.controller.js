@@ -102,15 +102,15 @@ exports.deleteAll = (req, res) => {
   Stol_2.destroy({
     where: {},
   })
-    .then((num) => {
+    .then(() => {
         res.send({
-          message: "Stol_1 was deleted successfully!",
+          message: "Stol_2 was deleted successfully!",
         });
       }
     )
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete Stol_1 with id=" + id,
+        message: "Could not delete Stol_2 with id=" + id,
       });
     });
 };

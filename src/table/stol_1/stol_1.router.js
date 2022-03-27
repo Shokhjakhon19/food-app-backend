@@ -1,6 +1,6 @@
 const stol_1 = require("./stol_1.controller");
 const router = require("express").Router();
-const Validator = require("./stol_2.validator");
+const Validator = require("./stol_1.validator");
 const validate = require("express-validation");
 
 //===== post router
