@@ -10,7 +10,10 @@ module.exports = {
 
   addNew: {
     body: {
-      title: Joi.string().required(),
+      maxsulot_nomi: Joi.string().required(),
+      maxsulot_turi: Joi.string().required(),
+      maxsulot_holati: Joi.string().required(),
+      maxsulot_narxi: Joi.string().required(),
     },
   },
 
@@ -19,7 +22,10 @@ module.exports = {
       id: Joi.string().required(),
     },
     body: {
-      title: Joi.string().required(),
+      maxsulot_nomi: Joi.string().required(),
+      maxsulot_turi: Joi.string().required(),
+      maxsulot_holati: Joi.string().required(),
+      maxsulot_narxi: Joi.string().required(),
     },
   },
 

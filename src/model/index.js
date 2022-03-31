@@ -20,6 +20,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.hisobot = require("../table/hisobot/hisobot.model")(sequelize, Sequelize);
+db.category = require("../table/category/category.model")(sequelize, Sequelize);
 db.maxsulotlar = require("../table/maxsulotlar/maxsulotlar.model")(
   sequelize,
   Sequelize

@@ -19,8 +19,20 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
+  if (!req.file) {
+    res.status(500);
+    return res.json({ error: "katta error" });
+  }
+  const amember = {
+    maxsulot_rasmi:
+      req.protocol + "://" + req.get("host") + "/img/" + req.file.filename,
+    maxsulot_nomi: req.body.maxsulot_nomi,
+    maxsulot_turi: req.body.maxsulot_turi,
+    maxsulot_holati: req.body.maxsulot_holati,
+    maxsulot_narxi: req.body.maxsulot_narxi,
+  };
 
-  Maxsulotlar.create(req.body)
+  Maxsulotlar.create(amember)
     .then((data) => {
       res.send(data);
     })
@@ -61,10 +73,22 @@ exports.filter = (req, res) => {
 };
 
 exports.update = (req, res) => {
+  if (!req.file) {
+    res.status(500);
+    return res.json({ error: "katta error" });
+  }
+  const amember = {
+    maxsulot_rasmi:
+      req.protocol + "://" + req.get("host") + "/img/" + req.file.filename,
+    maxsulot_nomi: req.body.maxsulot_nomi,
+    maxsulot_turi: req.body.maxsulot_turi,
+    maxsulot_holati: req.body.maxsulot_holati,
+    maxsulot_narxi: req.body.maxsulot_narxi,
+  };
 
   const id = req.params.id;
 
-  Maxsulotlar.update(req.body, {
+  Maxsulotlar.update(amember, {
     where: { id: id },
   })
     .then((num) => {
